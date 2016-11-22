@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -21,23 +25,24 @@ body {
     border-width: 2px;
 }
 .aside {
-  background-color: #354052;
-  margin-right: -10px;
+  background-color: #69D2E7;
+  padding-bottom: -50px;
+  /*margin-right: -10px;*/
 }
 .aside .main {
   padding: 40px;
   color: #6F7B7E;
 }
 .aside .title {
-  color: #6F7B7E;
+  color: #DFCDB4;
   font-size: 12px;
-  font-weight: bold;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 .aside .main .item {
   display: block;
   padding: 10px 0;
-  color: #6F7B7E;
+  color: #DFCDB4;
 }
 .aside .main .item.active {
   color: #F6F7F7;
@@ -48,10 +53,11 @@ body {
 }
 .aside .main .name {
   font-size: 16px;
-  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .admin-panel {
-  padding-bottom: 0;
+  padding: 0;
 }
 .content {
   display: block;

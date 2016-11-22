@@ -1,0 +1,9 @@
+{
+    "primary": "#69D2E7",
+    "secondary": "#A7DBD8",
+    "tertiary": {
+        "one": "#E0E4CC",
+        "two": "#F38630",
+        "three": "#FA6900"
+    }
+}
