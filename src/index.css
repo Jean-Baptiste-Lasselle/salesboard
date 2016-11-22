@@ -34,7 +34,7 @@ body {
   color: #6F7B7E;
 }
 .aside .title {
-  color: #DFCDB4;
+  color: #F6F7F7;
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -42,7 +42,7 @@ body {
 .aside .main .item {
   display: block;
   padding: 10px 0;
-  color: #DFCDB4;
+  color: #F6F7F7;
 }
 .aside .main .item.active {
   color: #F6F7F7;

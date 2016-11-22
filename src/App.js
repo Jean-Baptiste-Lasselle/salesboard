@@ -1,34 +1,64 @@
 import React, { Component } from 'react'
-import { VictoryChart, VictoryBar, VictoryTooltip, VictoryLine } from 'victory'
+import { VictoryChart, VictoryAxis, VictoryBar, VictoryTooltip, VictoryArea, VictoryLine, VictoryTheme } from 'victory'
 
 class App extends Component {
 	render() {
 		return (
 			<div className="container is-fluid" style={{backgroundColor: 'white', margin: 0}}>
-				<div className="tile is-ancestor" style={{padding: 20}}>
-					<div className="tile is-vertical is-12">
+				<div className="tile is-ancestor" style={{paddingLeft: 10, paddingRight: 10, margin: 0}}>
+					<div className="tile is-4">
+							<div className="tile">
+								<div className="tile is-parent is-vertical">
+									<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
+										<p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME WINFRED</p>
+										<p className="subtitle">you sexy beast</p>
+									</article>
+								</div>
+						</div>
+					</div>
+					<div className="tile is-vertical is-8">
 						<div className="tile">
 							<div className="tile is-parent is-vertical">
-								<article className="tile is-child">
+								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>TOTAL CUSTOMERS</p>
 									<p className="subtitle">past 6 months</p>
-									<VictoryLine
-									data={[
-										{month: "September", profit: 35000, loss: 2000},
-										{month: "October", profit: 42000, loss: 8000},
-										{month: "November", profit: 55000, loss: 5000},
-										{month: "December", profit: 35000, loss: 2000},
-										{month: "January", profit: 42000, loss: 8000},
-										{month: "February", profit: 55000, loss: 5000}
-									]}
-									x="month"
-									y={(datum) => datum.profit - datum.loss}
-									height={75}
-									style={{
-										data: {fill: "#FA6900", opacity: 0.7},
-										labels: {fontSize: 12},
-									}}
-									/>
+									<div>
+									<VictoryChart
+										theme={VictoryTheme.material}
+										domainPadding={20}
+										height={150}
+										padding={20}
+									>
+										<VictoryAxis 
+											tickValues={["September", "October", "November", "December", "January", "February"]}
+											style={{
+												tickLabels: {fontSize: 6, padding: 5}
+											}}
+										/>
+										<VictoryAxis 
+											dependentAxis tickFormat={(y) => (`${y / 1000}k`)}
+											style={{
+												tickLabels: {fontSize: 6, padding: 5}
+											}}
+										/>
+										<VictoryLine
+											data={[
+												{month: "September", profit: 35000, loss: 2000},
+												{month: "October", profit: 42000, loss: 8000},
+												{month: "November", profit: 55000, loss: 5000},
+												{month: "December", profit: 35000, loss: 2000},
+												{month: "January", profit: 42000, loss: 8000},
+												{month: "February", profit: 55000, loss: 2000}
+											]}
+											x="month"
+											y="profit"
+											style={{
+												labels: {fontSize: 12},
+												parent: {border: "1px solid #ccc"}
+											}}
+										/>
+									</VictoryChart>
+									</div>
 								</article>
 							</div>
 						</div>
@@ -66,19 +96,19 @@ class App extends Component {
 								<p style={{fontWeight: "bold", letterSpacing: 1}}>MONTHLY TICKETS</p>
 								<p className="subtitle">past 6 months</p>
 								<VictoryChart
-								domain={{ x: [0, 11], y: [-10, 10] }}
+									domain={{ x: [0, 11], y: [-10, 10] }}
 								>
 								<VictoryBar
 									labelComponent={<VictoryTooltip/>}
 									data={[
-									{x: 2, y: 5, label: "right-side-up"},
-									{x: 4, y: -6, label: "upside-down"},
-									{x: 6, y: 4, label: "tiny"},
-									{x: 8, y: -5, label: "or a little \n BIGGER"},
-									{x: 10, y: 7, label: "automatically"}
+										{x: 2, y: 5, label: "right-side-up"},
+										{x: 4, y: -6, label: "upside-down"},
+										{x: 6, y: 4, label: "tiny"},
+										{x: 8, y: -5, label: "or a little \n BIGGER"},
+										{x: 10, y: 7, label: "automatically"}
 									]}
 									style={{
-									data: {fill: "#F38630", width: 20}
+										data: {fill: "#F38630", width: 60}
 									}}
 								/>
 								</VictoryChart>
