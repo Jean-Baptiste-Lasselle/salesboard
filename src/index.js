@@ -4,8 +4,9 @@ import App from './App'
 import './index.css'
 import * as V from 'victory'
 import EmployeeLocations from './main/EmployeeLocations'
+import AllIssues from './main/AllIssues'
 
 ReactDOM.render(
-  <EmployeeLocations />,
+  <AllIssues />,
   document.getElementById('root')
 )

@@ -67,3 +67,22 @@ body {
 .hero .tabs ul {
     border-bottom: 1px solid #d3d6db;
 }
+
+.leaflet {
+  height: 300px;
+  width: 100%;
+}
+
+.leaflet-container {
+  height: 600px;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  height: 35px;
+  padding: 15px;
+  border: 1px solid black;
+}

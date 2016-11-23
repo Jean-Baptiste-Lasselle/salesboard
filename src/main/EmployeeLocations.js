@@ -1,9 +1,21 @@
 import React, {Component} from 'react'
 import { VictoryChart, VictoryAxis, VictoryBar, VictoryTooltip, VictoryArea, VictoryLine, VictoryTheme } from 'victory'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 
 class EmployeeLocations extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+        lat: 51.505,
+        lng: -0.09,
+        zoom: 13,
+        };
+    }
+
     render () {
+        const position = [this.state.lat, this.state.lng];
         return (
 			<div className="container is-fluid" style={{backgroundColor: 'white', margin: 0}}>
 				<div className="tile is-ancestor" style={{paddingLeft: 10, paddingRight: 10, margin: 0}}>
@@ -21,83 +33,69 @@ class EmployeeLocations extends Component {
 						<div className="tile">
 							<div className="tile is-parent">
 								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location 1</p>
-									<p className="subtitle">past 6 months</p>
-									
+									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Main Branch</p>
+									<p className="subtitle">Rio de Janeiro, Brazil</p>
+                                    <div className="leaflet-container">
+      <Map center={[51.505, -0.09]} zoom={this.state.zoom}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+        <Marker position={position}>
+          <Popup>
+            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+          </Popup>
+        </Marker>
+      </Map>
+                                    </div>
 								</article>
 							</div>
 						</div>
 						<div className="tile">
 							<div className="tile is-parent">
 								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location 1</p>
-									<p className="subtitle">past 6 months</p>
-									
+									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Branch</p>
+									<p className="subtitle">Kathmandu, Nepal</p>
+                                    <div className="leaflet-container">
+      <Map center={[51.505, -0.09]} zoom={this.state.zoom}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+        <Marker position={position}>
+          <Popup>
+            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+          </Popup>
+        </Marker>
+      </Map>
+                                    </div>
 								</article>
 							</div>
 						</div>
 						<div className="tile">
 							<div className="tile is-parent">
 								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location 1</p>
-									<p className="subtitle">past 6 months</p>
-									
+									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Branch</p>
+									<p className="subtitle">Singapore, Singapore</p>
+                                    <div className="leaflet-container">
+      <Map center={[51.505, -0.09]} zoom={this.state.zoom}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+        <Marker position={position}>
+          <Popup>
+            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+          </Popup>
+        </Marker>
+      </Map>
+                                    </div>
 								</article>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div className="tile is-ancestor" style={{padding: 20}}>
-					<div className="tile is-vertical is-8">
-						<div className="tile">
-							<div className="tile is-parent is-vertical">
-								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-								<p style={{fontWeight: "bold", letterSpacing: 1}}>OPEN ISSUES</p>
-								<p className="subtitle"><span className="title">45</span> total tickets</p>
-								</article>
-								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-								<p style={{fontWeight: "bold", letterSpacing: 1}}>TICKETS RAISED TODAY</p>
-								<p className="subtitle"><span className="title">32</span> new tickets</p>
-								</article>
-							</div>
-							<div className="tile is-parent">
-								<article className="tile is-child" style={{backgroundColor: "#A7DBD8", borderRadius: 5, padding: 15, color: "#ffffff", fontWeight: "bold", letterSpacing: 1}}>
-								<p>TICKETS RESOLVED TODAY</p>
-								<p className="subtitle" style={{color: "#ffffff"}}><span style={{fontSize: 54}}>22</span> tickets resolved the past 24 hours</p>
-								</article>
-							</div>
-						</div>
-						<div className="tile is-parent">
-							<article className="tile is-child notification is-danger" style={{backgroundColor: "#F38630", borderRadius: 0, padding: 15}}>
-								<p style={{fontWeight: "bold", letterSpacing: 1}}>AVERAGE REPLY TIME</p>
-								<span className="title">24 minutes 35 seconds</span>
-							</article>
-						</div>
-					</div>
-					<div className="tile is-parent">
-						<article className="tile is-child" style={{border: "1px solid", borderRadius: 0, padding: 15}}>
-								<p style={{fontWeight: "bold", letterSpacing: 1}}>MONTHLY TICKETS</p>
-								<p className="subtitle">past 6 months</p>
-								<VictoryChart
-									domain={{ x: [0, 11], y: [-10, 10] }}
-								>
-								<VictoryBar
-									labelComponent={<VictoryTooltip/>}
-									data={[
-										{x: 2, y: 5, label: "right-side-up"},
-										{x: 4, y: -6, label: "upside-down"},
-										{x: 6, y: 4, label: "tiny"},
-										{x: 8, y: -5, label: "or a little \n BIGGER"},
-										{x: 10, y: 7, label: "automatically"}
-									]}
-									style={{
-										data: {fill: "#F38630", width: 60}
-									}}
-								/>
-								</VictoryChart>
-						</article>
-					</div>
-				</div>
+				
 			</div>
         )
     }
