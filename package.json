@@ -6,8 +6,11 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "@horizon/client": "^2.0.0",
+    "babyparse": "^0.4.6",
     "griddle-react": "^0.7.0",
     "leaflet": "^1.0.2",
+    "papaparse": "^4.1.2",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-dropzone": "^3.7.3",
