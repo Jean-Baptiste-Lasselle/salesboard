@@ -8,9 +8,9 @@ class EmployeeLocations extends Component {
     constructor() {
         super();
         this.state = {
-        lat: 51.505,
-        lng: -0.09,
-        zoom: 13,
+          lat: 51.505,
+          lng: -0.09,
+          zoom: 13,
         };
     }
 
@@ -23,8 +23,8 @@ class EmployeeLocations extends Component {
 							<div className="tile">
 								<div className="tile is-parent is-vertical">
 									<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-										<p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME WINFRED</p>
-										<p className="subtitle">you sexy beast</p>
+										<p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME JOHN DOE</p>
+										<p className="subtitle">to your dashboard</p>
 									</article>
 								</div>
 						</div>
@@ -34,20 +34,20 @@ class EmployeeLocations extends Component {
 							<div className="tile is-parent">
 								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Main Branch</p>
-									<p className="subtitle">Rio de Janeiro, Brazil</p>
-                                    <div className="leaflet-container">
-      <Map center={[51.505, -0.09]} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <Marker position={position}>
-          <Popup>
-            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
-          </Popup>
-        </Marker>
-      </Map>
-                                    </div>
+									<p className="subtitle">Ibiza, Spain</p>
+									<div className="leaflet-container">
+										<Map center={[39.0200, 1.4821]} zoom={this.state.zoom}>
+											<TileLayer
+												attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+												url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+											/>
+											<Marker position={[39.0200, 1.4821]}>
+												<Popup>
+												<span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+												</Popup>
+											</Marker>
+										</Map>
+									</div>
 								</article>
 							</div>
 						</div>
@@ -57,17 +57,17 @@ class EmployeeLocations extends Component {
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Branch</p>
 									<p className="subtitle">Kathmandu, Nepal</p>
                                     <div className="leaflet-container">
-      <Map center={[51.505, -0.09]} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <Marker position={position}>
-          <Popup>
-            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
-          </Popup>
-        </Marker>
-      </Map>
+										<Map center={[27.7172, 85.3240]} zoom={this.state.zoom}>
+											<TileLayer
+											attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+											url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+											/>
+											<Marker position={[27.7172, 85.3240]}>
+											<Popup>
+												<span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+											</Popup>
+											</Marker>
+										</Map>
                                     </div>
 								</article>
 							</div>
@@ -78,17 +78,17 @@ class EmployeeLocations extends Component {
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Branch</p>
 									<p className="subtitle">Singapore, Singapore</p>
                                     <div className="leaflet-container">
-      <Map center={[51.505, -0.09]} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <Marker position={position}>
-          <Popup>
-            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
-          </Popup>
-        </Marker>
-      </Map>
+										<Map center={[1.3521, 103.8198]} zoom={this.state.zoom}>
+											<TileLayer
+											attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+											url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+											/>
+											<Marker position={[1.3521, 103.8198]}>
+											<Popup>
+												<span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+											</Popup>
+											</Marker>
+										</Map>
                                     </div>
 								</article>
 							</div>

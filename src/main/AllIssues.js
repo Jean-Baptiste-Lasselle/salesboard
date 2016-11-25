@@ -3,24 +3,42 @@ import Griddle from 'griddle-react'
 import Dropzone from 'react-dropzone'
 import Papa from 'papaparse'
 
-const fakeData = [
+var fakeData =  [
     {
         "id": 0,
         "name": "Mayer Leonard",
         "city": "Kapowsin",
+        "state": "Hawaii",
+        "country": "United Kingdom",
+        "company": "Ovolo",
+        "favoriteNumber": 7
     }
 ]
 
 class AllIssues extends Component {
 
-    onDrop = (acceptedFiles, rejectedFiles) => {
+    constructor (props) {
+        super(props)
+        this.setState = this.setState.bind(this)
+        this.state = {
+            submission: 0,
+            data: fakeData,
+        }
+    }
+    
+   
+    onDrop (acceptedFiles, rejectedFiles) {
+        console.log(acceptedFiles)
         const parsed = Papa.parse(acceptedFiles[0], {
-            complete: (results) => {
-                console.log(results.data)
-            }
+            complete: (result) => { 
+                this.setState({data:result.data}) 
+            },
+            error: (error) => {console.log(error)},
+            header: true, 
+            quotes: true,
         })
     }
-
+    
     render() {
         return (
             <div className="container is-fluid" style={{backgroundColor: 'white', margin: 0}}>
@@ -29,8 +47,8 @@ class AllIssues extends Component {
                         <div className="tile">
                             <div className="tile is-parent is-vertical">
                                 <article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-                                    <p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME WINFRED</p>
-                                    <p className="subtitle">you sexy beast</p>
+                                    <p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME JOHN DOE</p>
+                                    <p className="subtitle">to your dashboard</p>
                                 </article>
                             </div>
 						</div>
@@ -40,8 +58,7 @@ class AllIssues extends Component {
 							<div className="tile is-parent">
 								<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Upload latest issues</p>
-									<p className="subtitle">Rio de Janeiro, Brazil</p>
-                                    <Dropzone onDrop={this.onDrop} style={{width: "100%", height: 200, borderWidth: 2, borderColor: "rgb(102, 102, 102)", borderStyle: "dashed", borderRadius: 5}}>
+                                    <Dropzone onDrop={this.onDrop.bind(this)} style={{width: "100%", height: 200, borderWidth: 2, borderColor: "rgb(102, 102, 102)", borderStyle: "dashed", borderRadius: 5}}>
                                         <div style={{margin: "0 auto", width: "60%", paddingTop: 50}}>Update the list of issues by dropping a <strong>csv</strong>, or click to select file(s) to upload.</div>
                                     </Dropzone>
 								</article>
@@ -55,8 +72,7 @@ class AllIssues extends Component {
                             <div className="tile is-parent is-vertical">
                                 <article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
                                     <p style={{fontWeight: "bold", letterSpacing: 1}}>CURRENTLY OPEN ISSUES</p>
-                                    <p className="subtitle">you sexy beast</p>
-                                    <Griddle results={fakeData} showFilter={true} />
+                                    <Griddle results={this.state.data} />
                                 </article>
                             </div>
 						</div>

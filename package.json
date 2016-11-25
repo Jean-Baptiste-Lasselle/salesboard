@@ -9,6 +9,8 @@
     "@horizon/client": "^2.0.0",
     "axios": "^0.15.2",
     "babyparse": "^0.4.6",
+    "desklamp": "^0.1.4",
+    "dpd-clientlib": "^0.0.1",
     "griddle-react": "^0.7.0",
     "leaflet": "^1.0.2",
     "papaparse": "^4.1.2",

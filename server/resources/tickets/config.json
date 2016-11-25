@@ -1,0 +1,21 @@
+{
+	"type": "Collection",
+	"properties": {
+		"open": {
+			"name": "open",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "open",
+			"order": 0
+		},
+		"solved": {
+			"name": "solved",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "solved",
+			"order": 1
+		}
+	}
+}
