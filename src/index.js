@@ -17,8 +17,8 @@ import AllIssues from './main/AllIssues'
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={Main}>
-      <IndexRoute path="main" component={App}/>
+    <Route path="/" component={App}>
+      <IndexRoute component={Main}/>
       <Route path="locations" component={EmployeeLocations}/>
       <Route path="issues" component={AllIssues}/>
     </Route>
