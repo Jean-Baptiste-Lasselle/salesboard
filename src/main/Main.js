@@ -14,7 +14,7 @@ class Main extends Component {
 		this.poll = this.poll.bind(this);
 	}
 	
-	componentDidMount() {
+	componentWillMount() {
 		const intervalPoll = setInterval(this.poll, 3000)
 	}
 	

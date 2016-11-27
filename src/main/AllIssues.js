@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Griddle from 'griddle-react'
 import Dropzone from 'react-dropzone'
+import axios from 'axios'
 import Papa from 'papaparse'
 
 var fakeData =  [
@@ -23,9 +24,27 @@ class AllIssues extends Component {
         this.state = {
             submission: 0,
             data: fakeData,
+            openIssues: "--"
         }
+        this.poll = this.poll.bind(this)
     }
-    
+
+	componentWillMount() {
+		const intervalPoll = setInterval(this.poll, 3000)
+	}
+	
+	componentWillUnmount () {
+	}
+	
+	poll () {
+		// blob address : 'https://jsonblob.com/74a7f0ea-b25b-11e6-871b-2761cb55326e'
+		axios.get('https://jsonblob.com/api/jsonBlob/74a7f0ea-b25b-11e6-871b-2761cb55326e')
+		.then((response) => {
+			this.setState({
+				openIssues: response.data.openIssues,
+			})
+		})
+	}    
    
     onDrop (acceptedFiles, rejectedFiles) {
         console.log(acceptedFiles)
@@ -49,6 +68,7 @@ class AllIssues extends Component {
                                 <article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
                                     <p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME JOHN DOE</p>
                                     <p className="subtitle">to your dashboard</p>
+                                    <h3>Number of open issues: {this.state.openIssues}</h3>
                                 </article>
                             </div>
 						</div>

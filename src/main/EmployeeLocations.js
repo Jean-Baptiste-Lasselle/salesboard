@@ -1,18 +1,41 @@
 import React, {Component} from 'react'
 import { VictoryChart, VictoryAxis, VictoryBar, VictoryTooltip, VictoryArea, VictoryLine, VictoryTheme } from 'victory'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
-
+import axios from 'axios'
 
 class EmployeeLocations extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-          lat: 51.505,
-          lng: -0.09,
-          zoom: 13,
-        };
+    constructor(props) {
+        super(props)
+		this.state = {
+			lat: 51.505,
+			lng: -0.09,
+			zoom: 13,
+			issuesIbiza: "--",
+			issuesKathmandu: "--",
+			issuesSingapore: "--"
+		}
+		this.poll = this.poll.bind(this)
     }
+	
+	componentWillMount() {
+		const intervalPoll = setInterval(this.poll, 3000)
+	}
+	
+	componentWillUnmount () {
+	}
+	
+	poll () {
+		// blob address : 'https://jsonblob.com/74a7f0ea-b25b-11e6-871b-2761cb55326e'
+		axios.get('https://jsonblob.com/api/jsonBlob/74a7f0ea-b25b-11e6-871b-2761cb55326e')
+		.then((response) => {
+			this.setState({
+				issuesIbiza: response.data.issuesIbiza,
+				issuesKathmandu: response.data.issuesKathmandu,
+				issuesSingapore: response.data.issuesSingapore
+			})
+		})
+	}
 
     render () {
         const position = [this.state.lat, this.state.lng];
@@ -25,6 +48,10 @@ class EmployeeLocations extends Component {
 									<article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
 										<p style={{fontWeight: "bold", letterSpacing: 1}}>WELCOME JOHN DOE</p>
 										<p className="subtitle">to your dashboard</p>
+										<p>Here is a list of issues by branch: </p>
+										<h3>Ibiza : {this.state.issuesIbiza}</h3>
+										<h3>Kathmandu : {this.state.issuesKathmandu}</h3>
+										<h3>Singapore : {this.state.issuesSingapore}</h3>
 									</article>
 								</div>
 						</div>
