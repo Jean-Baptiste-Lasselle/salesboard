@@ -8,6 +8,7 @@ class App extends Component {
 		return (
 			<div>
 				<Main />
+				{this.props.children}
 			</div>
 		)
 	}
