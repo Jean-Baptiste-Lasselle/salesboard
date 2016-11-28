@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { VictoryChart, VictoryAxis, VictoryBar, VictoryTooltip, VictoryArea, VictoryLine, VictoryTheme } from 'victory'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import axios from 'axios'
 
@@ -20,9 +19,11 @@ class EmployeeLocations extends Component {
 	
 	componentWillMount() {
 		const intervalPoll = setInterval(this.poll, 3000)
+		this.setState({intervalPoll: intervalPoll})
 	}
 	
 	componentWillUnmount () {
+		clearInterval(this.state.intervalPoll)
 	}
 	
 	poll () {
@@ -34,6 +35,7 @@ class EmployeeLocations extends Component {
 				issuesKathmandu: response.data.issuesKathmandu,
 				issuesSingapore: response.data.issuesSingapore
 			})
+			console.log(response)
 		})
 	}
 

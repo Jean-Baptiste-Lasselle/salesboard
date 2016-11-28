@@ -10,15 +10,20 @@ class Main extends Component {
 			openIssues: '--',
 			todayIssues: '--',
 			resolvedToday: '--',
+			avgReplyTime: '--',
+			lineChartData: require('../data/mainview.json'),
+			barChartData: require('../data/mainview.json')
 		}
 		this.poll = this.poll.bind(this);
 	}
 	
 	componentWillMount() {
 		const intervalPoll = setInterval(this.poll, 3000)
+		this.setState({intervalPoll: intervalPoll})
 	}
 	
 	componentWillUnmount () {
+		clearInterval(this.state.intervalPoll)
 	}
 	
 	poll () {
@@ -28,14 +33,15 @@ class Main extends Component {
 			this.setState({
 				openIssues: response.data.openIssues,
 				todayIssues: response.data.todayIssues,
-				resolvedToday: response.data.resolvedToday
+				resolvedToday: response.data.resolvedToday,
+				avgReplyTime: response.data.avgReplyTime,
 			})
+			console.log(response)
 		})
 	}
 	
 	render() {
 		const {openIssues, todayIssues, resolvedToday} = this.state
-		
 		return (
 			<div className="container is-fluid" style={{backgroundColor: 'white', margin: 0}}>
 				<div className="tile is-ancestor" style={{paddingLeft: 10, paddingRight: 10, margin: 0}}>
@@ -75,14 +81,7 @@ class Main extends Component {
 											}}
 										/>
 										<VictoryLine
-											data={[
-												{month: "September", profit: 35000, loss: 2000},
-												{month: "October", profit: 42000, loss: 8000},
-												{month: "November", profit: 55000, loss: 5000},
-												{month: "December", profit: 35000, loss: 2000},
-												{month: "January", profit: 42000, loss: 8000},
-												{month: "February", profit: 55000, loss: 2000}
-											]}
+											data={this.state.lineChartData.lineChart}
 											x="month"
 											y="profit"
 											style={{
@@ -120,7 +119,7 @@ class Main extends Component {
 						<div className="tile is-parent">
 							<article className="tile is-child notification is-danger" style={{backgroundColor: "#F38630", borderRadius: 0, padding: 15}}>
 								<p style={{fontWeight: "bold", letterSpacing: 1}}>AVERAGE REPLY TIME</p>
-								<span className="title">24 minutes 35 seconds</span>
+								<span className="title">{this.state.avgReplyTime}</span>
 							</article>
 						</div>
 					</div>
@@ -133,14 +132,7 @@ class Main extends Component {
 								>
 								<VictoryBar
 									labelComponent={<VictoryTooltip/>}
-									data={[
-										{x: "1", y: 50, label: "September"},
-										{x: "2", y: 60, label: "October"},
-										{x: "3", y: 40, label: "November"},
-										{x: "4", y: 50, label: "December"},
-										{x: "5", y: 70, label: "January"},
-										{x: "6", y: 90, label: "February"}
-									]}
+									data={this.state.barChartData.barChart}
 									style={{
 										data: {fill: "#F38630", width: 40}
 									}}

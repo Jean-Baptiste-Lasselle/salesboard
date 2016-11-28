@@ -6,13 +6,13 @@ import Papa from 'papaparse'
 
 var fakeData =  [
     {
-        "id": 0,
+        "submission": 0,
         "name": "Mayer Leonard",
-        "city": "Kapowsin",
-        "state": "Hawaii",
-        "country": "United Kingdom",
-        "company": "Ovolo",
-        "favoriteNumber": 7
+        "email": "leonard@mail.com",
+        "description": "Lorem Ipsum adispiscing elit",
+        "status": "closed",
+        "closed": 0,
+        "employee": "John Doe"
     }
 ]
 
@@ -31,9 +31,11 @@ class AllIssues extends Component {
 
 	componentWillMount() {
 		const intervalPoll = setInterval(this.poll, 3000)
+        this.setState({intervalPoll: intervalPoll})
 	}
 	
 	componentWillUnmount () {
+        clearInterval(this.state.intervalPoll)
 	}
 	
 	poll () {
@@ -43,6 +45,7 @@ class AllIssues extends Component {
 			this.setState({
 				openIssues: response.data.openIssues,
 			})
+            console.log(response)
 		})
 	}    
    
@@ -86,18 +89,24 @@ class AllIssues extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="tile is-ancestor" style={{paddingLeft: 10, paddingRight: 10, margin: 0}}>
-					<div className="tile is-12">
-                        <div className="tile">
-                            <div className="tile is-parent is-vertical">
-                                <article className="tile is-child" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
-                                    <p style={{fontWeight: "bold", letterSpacing: 1}}>CURRENTLY OPEN ISSUES</p>
-                                    <Griddle results={this.state.data} />
-                                </article>
+                <div className="container is-fluid">
+                    <div className="tile is-ancestor" style={{paddingLeft: 10, paddingRight: 10, margin: 0}}>
+                        <div className="tile is-12">
+                            <div className="tile">
+                                <div className="tile is-parent is-vertical">
+                                    <article className="tile is-child scrollTable" style={{border: "1px solid", borderRadius: 5, padding: 15}}>
+                                        <p style={{fontWeight: "bold", letterSpacing: 1}}>CURRENTLY OPEN ISSUES</p>
+                                                <Griddle 
+                                                    results={this.state.data} 
+                                                    showFilter={true}
+                                                    columns={["submission", "name", "email", "description", "status", "closed", "employee"]}
+                                                />
+                                    </article>
+                                </div>
                             </div>
-						</div>
-					</div>
-				</div>
+                        </div>
+                    </div>
+                </div>
 			</div>
         );
     }

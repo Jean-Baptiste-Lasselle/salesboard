@@ -1,5 +1,22 @@
 {
     "openIssues": 65,
     "todayIssues": 32,
-    "resolvedToday": 24
+    "resolvedToday": 24,
+    "lineChart": [
+		{"month": "September", "profit": 35000, "loss": 2000},
+		{"month": "October", "profit": 42000, "loss": 8000},
+		{"month": "November", "profit": 55000, "loss": 5000},
+		{"month": "December", "profit": 35000, "loss": 2000},
+		{"month": "January", "profit": 42000, "loss": 8000},
+		{"month": "February", "profit": 55000, "loss": 2000}
+    ],
+    "barChart": [
+        {"x": "1", "y": 50, "label": "September"},
+        {"x": "2", "y": 60, "label": "October"},
+        {"x": "3", "y": 40, "label": "November"},
+        {"x": "4", "y": 50, "label": "December"},
+        {"x": "5", "y": 70, "label": "January"},
+        {"x": "6", "y": 90, "label": "February"}
+    ]    
 }
+
