@@ -12,7 +12,10 @@ class EmployeeLocations extends Component {
 			zoom: 13,
 			issuesIbiza: "--",
 			issuesKathmandu: "--",
-			issuesSingapore: "--"
+			issuesSingapore: "--",
+			locIbiza: require('../data/mainview.json'),
+			locKathmandu: require('../data/mainview.json'),
+			locSingapore: require('../data/mainview.json'),
 		}
 		this.poll = this.poll.bind(this)
     }
@@ -65,12 +68,12 @@ class EmployeeLocations extends Component {
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Main Branch</p>
 									<p className="subtitle">Ibiza, Spain</p>
 									<div className="leaflet-container">
-										<Map center={[39.0200, 1.4821]} zoom={this.state.zoom}>
+										<Map center={this.state.locIbiza.coorIbiza} zoom={this.state.zoom}>
 											<TileLayer
 												attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 												url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
 											/>
-											<Marker position={[39.0200, 1.4821]}>
+											<Marker position={this.state.locIbiza.coorIbiza}>
 												<Popup>
 												<span>A pretty CSS3 popup. <br/> Easily customizable.</span>
 												</Popup>
@@ -86,12 +89,12 @@ class EmployeeLocations extends Component {
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Branch</p>
 									<p className="subtitle">Kathmandu, Nepal</p>
                                     <div className="leaflet-container">
-										<Map center={[27.7172, 85.3240]} zoom={this.state.zoom}>
+										<Map center={this.state.locKathmandu.coorKathmandu} zoom={this.state.zoom}>
 											<TileLayer
 											attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 											url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
 											/>
-											<Marker position={[27.7172, 85.3240]}>
+											<Marker position={this.state.locKathmandu.coorKathmandu}>
 											<Popup>
 												<span>A pretty CSS3 popup. <br/> Easily customizable.</span>
 											</Popup>
@@ -107,12 +110,12 @@ class EmployeeLocations extends Component {
 									<p style={{fontWeight: "bold", letterSpacing: 1}}>Employee Location, Branch</p>
 									<p className="subtitle">Singapore, Singapore</p>
                                     <div className="leaflet-container">
-										<Map center={[1.3521, 103.8198]} zoom={this.state.zoom}>
+										<Map center={this.state.locSingapore.coorSingapore} zoom={this.state.zoom}>
 											<TileLayer
 											attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 											url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
 											/>
-											<Marker position={[1.3521, 103.8198]}>
+											<Marker position={this.state.locSingapore.coorSingapore}>
 											<Popup>
 												<span>A pretty CSS3 popup. <br/> Easily customizable.</span>
 											</Popup>

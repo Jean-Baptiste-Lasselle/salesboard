@@ -17,6 +17,9 @@
         {"x": "4", "y": 50, "label": "December"},
         {"x": "5", "y": 70, "label": "January"},
         {"x": "6", "y": 90, "label": "February"}
-    ]    
+    ],
+    "coorIbiza": [39.0200, 1.4821],
+    "coorKathmandu": [27.7172, 85.3240],
+    "coorSingapore": [1.3521, 103.8198]    
 }
 
