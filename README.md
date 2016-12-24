@@ -20,7 +20,7 @@ Edit the numbers and the data on the dashboard gets updated within 3 seconds.
 Edit source files in the src folder. To compile a build :
 
 1. npm run build
-2. all compiled files are in the public folder
+2. all compiled/optimized files are in the build folder
 
 ## Credits
 [Create-React-App](https://github.com/facebookincubator/create-react-app)
