@@ -1,4 +1,36 @@
+# Foreword to the author I forked the code of
+
+To begin this repo, I'd like to address my thanks to the original author of the npm module and react client : 
+
+https://github.com/saintograph
+
+In case Mr. `Saintograh` reads this : 
+
+Thank you then, I'll see if what i do of his creation, will be worth contacting you, if you are opened to collaboration.
+
+At any rate, any of my products will mention your fathership for the original module.
+
+So thank you for your work,
+
+Regards.
+
+## A quick Japan play
+
+Let's play Katacoda : 
+
+* Go to https://www.katacoda.com/courses/nodejs/playground
+* n execute that, me friend : 
+
+```bash
+git clone https://github.com/Jean-Baptiste-Lasselle/salesboard
+cd ./salesboard && npm install -g yarn && yarn install --save-dev && npm start
+```
+
+yo.
+
+
 # Salesboard
+
 A sales dashboard built with React, CSS by Bulma. Deployable as a static site.
 
 DEMO here :  [http://foamy-trees.surge.sh/](https://foamy-trees.surge.sh/)
