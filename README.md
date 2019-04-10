@@ -2,9 +2,9 @@
 
 To begin this repo, I'd like to address my thanks to the original author of the npm module and react client : 
 
-https://github.com/saintograph
+* winfredselwyn/ maybe https://github.com/saintograph too (I did not studied git histroy tree)
 
-In case Mr. `Saintograh` reads this : 
+In case Mr. `winfredselwyn/Saintograh` reads this : 
 
 Thank you then, I'll see if what i do of his creation, will be worth contacting you, if you are opened to collaboration.
 
